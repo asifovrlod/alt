@@ -2,9 +2,9 @@
     <div class="container mx-auto px-6">
         <div class="flex flex-wrap">
             <div class="w-full lg:w-1/4 mb-5 lg:mb-0">
-                <a href="/" aria-label="Back to Homepage" >
+                <a href="/" aria-label="Back to Homepage">
                     <img src="/images/alt_logo.svg" alt="{{ config:app:name }}" class="w-[100px]">
-<!--                    <img src="{{ glide src='/images/logo.png' format='webp' width='100'}}" alt="{{ config:app:name }}" class="w-[100px]">-->
+                    <!--                    <img src="{{ glide src='/images/logo.png' format='webp' width='100'}}" alt="{{ config:app:name }}" class="w-[100px]">-->
                 </a>
             </div>
 
@@ -17,13 +17,15 @@
             <div class="w-full lg:w-1/4 flex flex-col">
                 {{ if contact_details:telephone }}
                 <div class="inline-flex font-semibold">
-                    T: <a href="tel:{{ contact_details:telephone }}" class="ml-2 mb-1 font-normal">{{ contact_details:telephone }}</a>
+                    T: <a href="tel:{{ contact_details:telephone }}" class="ml-2 mb-1 font-normal">{{
+                        contact_details:telephone }}</a>
                 </div>
                 {{ /if }}
 
                 {{ if contact_details:email }}
                 <div class="inline-flex font-semibold">
-                    E: <a href="mailto:{{ contact_details:email }}" class="ml-2 mb-6 font-normal">{{ contact_details:email }}</a>
+                    E: <a href="mailto:{{ contact_details:email }}" class="ml-2 mb-6 font-normal">{{
+                        contact_details:email }}</a>
                 </div>
                 {{ /if }}
                 {{ partial src="_parts/social-links" }}
@@ -42,11 +44,11 @@
 
         <div class="bottom border-t border-white pt-6 mt-6 text-white flex flex-wrap justify-between items-center">
             <div class="footer-small-links flex space-x-5">
-            {{ nav:footer_small_links }}
-            <div class="text-xs">
-                <a href="{{ url }}">{{ title }}</a>
-            </div>
-            {{ /nav:footer_small_links }}
+                {{ nav:footer_small_links }}
+                <div class="text-xs">
+                    <a href="{{ url }}">{{ title }}</a>
+                </div>
+                {{ /nav:footer_small_links }}
             </div>
             <div class="flex items-center text-xs leading-5">
                 Site by <a href="https://www.alt-design.net/" target="_blank" class="pl-1 hover:underline">Alt</a>
