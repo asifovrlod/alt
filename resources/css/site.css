@@ -6,24 +6,26 @@
 @import "./parts/glide.css";
 @import "./parts/wysiwyg.css";
 
-@theme{
-    --color-radio-fill: rgb(0, 0, 0);
-    --color-checkbox-fill: rgb(0, 0, 0);
+@theme {
+    --color-radio-fill     : rgb(0, 0, 0);
+    --color-checkbox-fill  : rgb(0, 0, 0);
     --color-background-tint: rgba(0, 0, 0, 0.5)
 }
 
-[x-cloak] { display: none !important; }
+[x-cloak] {
+    display: none !important;
+}
 
-body:has(div.preventScroll){
+body:has(div.preventScroll) {
     overflow: hidden;
-    height: 100vh;
+    height  : 100vh;
 }
 
 :root {
     --navbar-height: 117px;
 }
 
-.spacer{
+.spacer {
     height: var(--navbar-height)
 }
 
@@ -31,28 +33,23 @@ html {
     scroll-padding-top: var(--navbar-height)
 }
 
-.h-screen-adj{
+.h-screen-adj {
     height: calc(100vh - var(--navbar-height));
 }
 
-.background-tint{
+.background-tint {
     background-color: var(--color-background-tint);
 }
 
 
-.heading-sm{
+.heading-sm {
     @apply text-2xl lg:text-4xl
 }
 
-.heading-md{
+.heading-md {
     @apply text-3xl lg:text-5xl
 }
 
-.heading-lg{
+.heading-lg {
     @apply text-4xl lg:text-6xl
 }
-
-
-
-
-

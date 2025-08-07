@@ -1,18 +1,19 @@
 <section class="job-listings">
 
-    <div class="contcontainer mx-auto px-6 flex  flex-wrap  lg:flex-nowrap justify-between items-center lg:space-x-20">
+    <div class="container mx-auto px-6 flex flex-col  flex-wrap  lg:flex-nowrap lg:space-x-20">
         {{ if heading }}
-        <h2>{{ heading }}</h2>
+        <h1 class="text-xl">{{ heading }}</h1>
         {{ else }}
-        <h2>Job Listings</h2>
+        <h1 class="text-xl">Job Listings</h1>
         {{ /if }}
 
         <ul>
 
             {{ collection:jobs sort="date:desc" limit="{ max_items }" }}
 
-            <li class="py-4 border-b">
-                <div class="max-w-[150px] py-2">
+
+            <div class="flex gap-16 items-start mb-5">
+                <div class="w-[150px]">
                     {{ partial src="_parts/components/image"
                     :url="company_logo:url"
                     :alt="company_name"
@@ -23,18 +24,17 @@
                     }}
 
                 </div>
-
-
-                <a href="{{ url }}" class="text-xl font-semibold">{{ title }}</a>
-                <p class="text-sm text-gray-500">{{ location }} | {{ job_type }}</p>
-
-                {{ if job_details }}
-                <p class="mt-2">{{ job_details }}</p>
-                {{ /if }}
-
-                <p>Location: {{ location }}</p>
-                <p>Salary: {{ salary_range }}</p>
-            </li>
+                <div>
+                    <a href="{{ url }}" class="text-xl font-semibold">
+                        <h3>{{ title }}</h3>
+                        <p class="text-sm text-gray-500">{{ location }} | {{ job_type limit="1" }}<span>{{ label
+                                }}</span>
+                            {{ /job_type }}</p>
+                        <p>Location: {{ location }}</p>
+                        <p>Salary: {{ salary_range }}</p>
+                    </a>
+                </div>
+            </div>
             {{ /collection:jobs }}
         </ul>
     </div>

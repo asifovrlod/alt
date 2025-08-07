@@ -1,5 +1,5 @@
 <div class="alt_header relative h-screen-adj {{ if height == 'half' }} max-h-[500px] {{ /if }} w-screen overflow-hidden"
-     style="background-color: {{ background_colour }};">
+    style="background-color: {{ background_colour }};">
 
     {{ if media_type != 'none' }}
     {{ partial
@@ -21,7 +21,8 @@
 
     <div class="absolute inset-0 {{ if background_tint }} background-tint {{ /if }}">
         <div class="container mx-auto px-6 py-10 flex flex-col justify-end lg:justify-center text-white h-full w-full">
-            {{ partial src="_parts/fieldsets/heading" :text="header_text" :colour="header_colour" :size="header_size" :max_width="header_max_width" :h1="header_h1" :text_align="header_text_align" }}
+            {{ partial src="_parts/fieldsets/heading" :text="header_text" :colour="header_colour" :size="header_size"
+            :max_width="header_max_width" :h1="header_h1" :text_align="header_text_align" }}
 
             {{ if subtitle}}
             <p class="text-2xl mb-6">{{ subtitle }}</p>
