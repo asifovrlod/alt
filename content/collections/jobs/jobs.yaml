@@ -1,0 +1,8 @@
+# /content/collections/blog.yaml
+title: Jobs
+date_behavior:
+  past: public
+  future: private
+route: "/jobs/{slug}"
+template: jobs/show
+sort_dir: desc

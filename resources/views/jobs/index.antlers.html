@@ -1,0 +1,41 @@
+<section class="job-listings">
+
+    <div class="container mx-auto px-6 flex flex-col flex-wrap lg:flex-nowrap lg:space-x-20 py-[50px]">
+        {{ if heading }}
+        <h1 class="text-2xl">{{ heading }}</h1>
+        {{ else }}
+        <h1 class="text-2xl">Job Listings</h1>
+        {{ /if }}
+
+        <div class="mt-5">
+            {{ collection:jobs sort="date:desc" limit="{ max_items }" }}
+
+            <div class="flex gap-16 items-center mb-5 border border-gray-200 p-5">
+                <div class="w-[80px] border border-gray-200 rounded-lg overflow-hidden p-2">
+                    {{ partial src="_parts/components/image"
+                    :url="company_logo:url"
+                    :alt="company_name"
+                    :mobile_width="300px"
+                    :desktop_width="300px"
+                    :desktop_size="300px"
+                    :loading="'lazy'"
+                    }}
+                </div>
+                <div>
+                    <a href="{{ url }}" class="text-xl font-semibold">
+                        <div class="flex gap-4 items-center">
+                            <h3>{{ title }}</h3>
+                            <p class="text-sm text-gray-500">{{ location }} | {{ job_type }}
+                                <span>{{ label}}</span>
+                                {{ /job_type }}
+                            </p>
+                        </div>
+                        <p>Location: {{ location }}</p>
+                        <p>Salary: {{ salary_range }}</p>
+                    </a>
+                </div>
+            </div>
+            {{ /collection:jobs }}
+        </div>
+    </div>
+</section>

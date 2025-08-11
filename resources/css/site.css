@@ -53,3 +53,16 @@ html {
 .heading-lg {
     @apply text-4xl lg:text-6xl
 }
+
+.markdown p {
+    margin-bottom: 10px
+}
+
+.markdown ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.markdown ul li{
+    list-style-type: circle;
+}
