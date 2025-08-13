@@ -1,5 +1,5 @@
 # /content/collections/blog.yaml
-title: Jobs
+title: Companies
 date_behavior:
   past: public
   future: private
