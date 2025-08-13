@@ -12,6 +12,7 @@
 
             <div class="flex gap-16 items-center mb-5 border border-gray-200 p-5">
                 <div class="w-[80px] border border-gray-200 rounded-lg overflow-hidden p-2">
+                    {{ select_company }}
                     {{ partial src="_parts/components/image"
                     :url="company_logo:url"
                     :alt="company_name"
@@ -20,6 +21,7 @@
                     :desktop_size="300px"
                     :loading="'lazy'"
                     }}
+                    {{ /select_company }}
                 </div>
                 <div>
                     <a href="{{ url }}" class="text-xl font-semibold">

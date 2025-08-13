@@ -1,0 +1,8 @@
+# /content/collections/blog.yaml
+title: Jobs
+date_behavior:
+  past: public
+  future: private
+route: "/companies/{slug}"
+template: companies/show
+sort_dir: desc
