@@ -1,0 +1,29 @@
+<section class="search-results py-[50px]">
+	<div class="container mx-auto px-6">
+		<h1 class="text-2xl mb-6">Search Results</h1>
+
+		<form method="GET" action="/search" class="mb-6 flex gap-3">
+			<input class="border px-3 py-2 w-full" type="text" name="q" placeholder="Search jobs..."
+				value="{{ get:q }}" />
+			<button class="border px-4 py-2" type="submit">Search</button>
+		</form>
+
+		{{ if get:q }}
+		<p class="mb-4 text-gray-600">Showing results for "{{ get:q }}"</p>
+		{{ search:results index="jobs" for="{ get:q }" }}
+		<div class="mb-5 border border-gray-200 p-5 rounded">
+			<a href="{{ url }}" class="text-xl font-semibold">{{ title }}</a>
+			<p class="text-sm text-gray-500">{{ location }}</p>
+			{{ if search_snippets.job_details.value }}
+			<p class="mt-2 text-gray-700">{{ search_snippets.job_details.value | strip_tags }}</p>
+			{{ /if }}
+		</div>
+		{{ if no_results }}
+		<p>No results found.</p>
+		{{ /if }}
+		{{ /search:results }}
+		{{ else }}
+		<p>Enter a term above to search jobs.</p>
+		{{ /if }}
+	</div>
+</section>

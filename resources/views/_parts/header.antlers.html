@@ -1,4 +1,10 @@
 <nav class="alt_header fixed top-0 left-0 w-screen bg-black text-white z-50">
+
+    <form method="GET" action="/search">
+        <input type="text" name="q" placeholder="Search jobs..." value="{{ get:q }}" />
+        <button type="submit">Search</button>
+    </form>
+
     <div class="container mx-auto px-6 py-7 flex justify-between items-center">
         <a href="/" aria-label="Back to Homepage">
             <img src="/images/alt_logo.svg" alt="{{ config:app:name }}" class="w-[100px]">

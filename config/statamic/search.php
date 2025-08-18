@@ -31,6 +31,16 @@ return [
             'fields' => ['title'],
         ],
 
+        'jobs' => [
+            'driver' => 'algolia',
+            'searchables' => 'collection:jobs',
+            'fields' => ['title', 'job_details', 'location', 'salary_range'],
+            'settings' => [
+                'searchableAttributes' => ['title', 'job_details', 'location'],
+                'attributesToSnippet' => ['job_details:30'],
+            ],
+        ],
+
         // 'blog' => [
         //     'driver' => 'local',
         //     'searchables' => 'collection:blog',

@@ -1,0 +1,9 @@
+---
+title: Search
+template: search
+slug: search
+id: 5c2f3e0b-9c7a-4f1a-8f8a-2c9b5b8c6a3e
+published: true
+---
+
+
