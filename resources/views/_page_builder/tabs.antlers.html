@@ -1,0 +1,91 @@
+<div class="alt_wysiwyg my-10 lg:my-20">
+    <div class="container mx-auto px-6 max-w-[1000px]">
+        <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab"
+                data-tabs-toggle="#default-tab-content" role="tablist">
+                {{ tabs }}
+
+                <li class="me-2" role="presentation">
+                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab"
+                        data-tabs-target=" {{ id }}" type="button" role="tab" aria-controls="profile"
+                        aria-selected="false">
+                        {{ tab_componenttest_component_title }}
+                    </button>
+                </li>
+                {{ /tabs }}
+            </ul>
+        </div>
+        <div id="default-tab-content">
+            {{ tabs }}
+            <div class=" p-4 rounded-lg bg-gray-50" id=" {{ id }}" role="tabpanel" aria-labelledby=" {{ id }}-tab">
+
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                    <a href="#">
+                        <img class="rounded-t-lg" src="{{tab_componenttest_component_media}}" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
+                                {{tab_componenttest_component_title}}
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
+                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        <a href="{{tab_componenttest_component_link}}"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Read more
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {{ /tabs }}
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tabButtons = document.querySelectorAll("#default-styled-tab [data-tabs-target]");
+        const tabContents = document.querySelectorAll("#default-styled-tab-content > div");
+
+        function activateTab(button) {
+            const targetSelector = button.getAttribute("data-tabs-target");
+            const targetContent = document.querySelector(targetSelector);
+
+            // Reset all tabs
+            tabButtons.forEach(btn => {
+                btn.classList.remove("text-purple-600", "border-purple-600");
+                btn.classList.add("text-gray-500", "border-transparent");
+                btn.setAttribute("aria-selected", "false");
+            });
+
+            // Hide all contents
+            tabContents.forEach(content => content.classList.add("hidden"));
+
+            // Activate clicked tab
+            button.classList.add("text-purple-600", "border-purple-600");
+            button.classList.remove("text-gray-500", "border-transparent");
+            button.setAttribute("aria-selected", "true");
+
+            // Show target content
+            if (targetContent) {
+                targetContent.classList.remove("hidden");
+            }
+        }
+
+        // Attach events
+        tabButtons.forEach(btn => {
+            btn.addEventListener("click", () => activateTab(btn));
+        });
+
+        // Activate first tab on load
+        if (tabButtons.length > 0) {
+            activateTab(tabButtons[0]);
+        }
+    });    
+</script>
