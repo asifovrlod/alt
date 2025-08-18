@@ -7,7 +7,6 @@
 				value="{{ get:q }}" />
 			<button class="border px-4 py-2" type="submit">Search</button>
 		</form>
-
 		{{ if get:q }}
 		<p class="mb-4 text-gray-600">Showing results for "{{ get:q }}"</p>
 		{{ search:results index="site" for="{ get:q }" }}
