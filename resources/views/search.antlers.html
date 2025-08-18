@@ -10,7 +10,7 @@
 
 		{{ if get:q }}
 		<p class="mb-4 text-gray-600">Showing results for "{{ get:q }}"</p>
-		{{ search:results index="jobs" for="{ get:q }" }}
+		{{ search:results index="site" for="{ get:q }" }}
 		<div class="mb-5 border border-gray-200 p-5 rounded">
 			<a href="{{ url }}" class="text-xl font-semibold">{{ title }}</a>
 			<p class="text-sm text-gray-500">{{ location }}</p>

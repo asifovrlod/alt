@@ -41,6 +41,26 @@ return [
             ],
         ],
 
+        'companies' => [
+            'driver' => 'algolia',
+            'searchables' => 'collection:companies',
+            'fields' => ['title', 'company', 'location'],
+            'settings' => [
+                'searchableAttributes' => ['title', 'company', 'location'],
+                'attributesToSnippet' => ['company:30'],
+            ],
+        ],
+
+        'site' => [
+            'driver' => 'algolia',
+            'searchables' => ['collection:jobs', 'collection:companies'],
+            'fields' => ['title', 'job_details', 'location', 'salary_range', 'company'],
+            'settings' => [
+                'searchableAttributes' => ['title', 'job_details', 'location', 'company'],
+                'attributesToSnippet' => ['job_details:30'],
+            ],
+        ],
+
         // 'blog' => [
         //     'driver' => 'local',
         //     'searchables' => 'collection:blog',
